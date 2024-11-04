@@ -73,3 +73,16 @@ iptables --version
 iptables is often installed by default on many systems. You can check if it is already installed by running iptables
 --version.
 Ensure that you have the necessary permissions to install packages (usually requires root or sudo access).
+
+## How to use with XuanWu.sh?
+
+1, find your web server log directory and replace your-web-log-dir.log with your website access log.
+
+2, If you need to restrict specific URL suffixes, you can add them here. If you do not need to impose any restrictions,
+comment out or delete these lines of code.
+
+```
+    if ($7 ~ /\.(php|sh|sql|jsp|asp|cgi)$/ || $7 ~ /[?&]type=custom/) {
+        print $1  # Output the IP directly
+    }
+```
